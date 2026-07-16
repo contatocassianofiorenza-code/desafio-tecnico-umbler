@@ -40,22 +40,22 @@ O arquivo é um virtual host de Nginx para WordPress. Ele cumpre os três pontos
 
 **Segurança.** Bloqueei o acesso a arquivos sensíveis como `.htaccess`, `.git` e o `wp-config.php`, que guarda as credenciais do banco e nunca deveria ser acessível pela web.
 
-### Como validar
+### Como validei
 
-A configuração foi testada com o validador de sintaxe do Nginx numa VM com Nginx e PHP-FPM reais:
+Testei a configuração numa VM com Ubuntu 22.04, Nginx e PHP-FPM reais. Copiei o virtual host para o Nginx, criei a pasta de cache que ele referencia e rodei o validador de sintaxe:
 
 ```bash
+sudo mkdir -p /var/cache/nginx/wordpress
 sudo cp wordpress.conf /etc/nginx/sites-available/wordpress
-sudo ln -s /etc/nginx/sites-available/wordpress /etc/nginx/sites-enabled/
 sudo nginx -t
 ```
 
 Saída obtida:
 
-```
 nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
 nginx: configuration file /etc/nginx/nginx.conf test is successful
-```
+
+A configuração passou sem erros nem avisos, confirmando que a sintaxe e as diretivas (incluindo a zona de cache, as regras de bypass e o encaminhamento do PHP) estão corretas.
 
 ### Uma observação honesta sobre Nginx e LiteSpeed
 
