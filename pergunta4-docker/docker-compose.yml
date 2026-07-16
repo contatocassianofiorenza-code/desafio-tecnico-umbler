@@ -1,0 +1,48 @@
+# =============================================================================
+# docker-compose.yml - Ambiente de desenvolvimento local
+# -----------------------------------------------------------------------------
+# Sobe tres servicos que conversam entre si numa rede propria:
+#   nginx   -> servidor web na borda, publica a porta 8080
+#   php     -> worker PHP-FPM que processa o codigo
+#   mariadb -> banco de dados, com os dados persistidos em volume
+# =============================================================================
+
+services:
+
+  # --- Servidor web (borda) --------------------------------------------------
+  nginx:
+    image: nginx:stable
+    container_name: dev_nginx
+    ports:
+      - "8081:80"                       # host:container
+    volumes:
+      - ./src:/var/www/html:ro          # codigo da aplicacao (somente leitura)
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - php                             # so sobe depois do php estar de pe
+    restart: unless-stopped
+
+  # --- Worker PHP-FPM --------------------------------------------------------
+  php:
+    image: php:8.1-fpm
+    container_name: dev_php
+    volumes:
+      - ./src:/var/www/html             # mesmo codigo que o nginx enxerga
+    restart: unless-stopped
+
+  # --- Banco de dados --------------------------------------------------------
+  mariadb:
+    image: mariadb:10.11
+    container_name: dev_mariadb
+    environment:
+      MARIADB_ROOT_PASSWORD: root_dev
+      MARIADB_DATABASE: app
+      MARIADB_USER: app
+      MARIADB_PASSWORD: app_dev
+    volumes:
+      - mariadb_data:/var/lib/mysql     # volume nomeado: dados persistem
+    restart: unless-stopped
+
+# --- Volumes nomeados: sobrevivem a "down" e "up" dos containers -------------
+volumes:
+  mariadb_data:
