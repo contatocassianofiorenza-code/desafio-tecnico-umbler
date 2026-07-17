@@ -1,0 +1,31 @@
+<%- | String $dominio, String $docroot | -%>
+# ============================================================
+# Virtual host gerado pelo Puppet para <%= $dominio %>
+# Full-page cache (LSCache) habilitado, com bypass para area logada.
+# ============================================================
+server {
+    listen 80;
+    server_name <%= $dominio %> www.<%= $dominio %>;
+
+    root <%= $docroot %>;
+    index index.php index.html;
+
+    # Decisao de cache por requisicao: nunca cachear admin/login/logado.
+    set $skip_cache 0;
+    if ($request_uri ~* "/wp-admin/|/wp-login.php") { set $skip_cache 1; }
+    if ($http_cookie ~* "wordpress_logged_in")      { set $skip_cache 1; }
+
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
+
+    location ~ \.php$ {
+        include fastcgi_params;
+        fastcgi_pass unix:/var/run/lsphp.sock;   # worker LSPHP
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+
+        # full-page cache (LSCache), respeitando o bypass acima
+        fastcgi_cache_bypass $skip_cache;
+        fastcgi_no_cache     $skip_cache;
+    }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "cassiano-hosting",
+  "version": "0.1.0",
+  "author": "Cassiano Fiorenza",
+  "summary": "Provisiona clientes em hospedagem compartilhada (Nginx + LiteSpeed/LSPHP + WordPress)",
+  "source": "https://github.com/",
+  "license": "MIT",
+  "dependencies": [],
+  "operatingsystem_support": [
+    { "operatingsystem": "Ubuntu", "operatingsystemrelease": ["22.04"] },
+    { "operatingsystem": "Debian", "operatingsystemrelease": ["12"] }
+  ]
+}
