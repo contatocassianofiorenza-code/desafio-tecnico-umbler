@@ -1,6 +1,6 @@
 # Desafio Técnico — Analista de Infraestrutura Web (Linux)
 
-Olá! Meu nome é Cassiano Fiorenza e este repositório é a minha resolução do desafio técnico da Configr.
+Olá! Meu nome é Cassiano Fiorenza e este repositório é a minha resolução do desafio técnico da Umbler.
 
 O desafio foi dividido em cinco perguntas, cada uma cobrindo uma parte do dia a dia de quem cuida de infraestrutura de hospedagem: resolução de problemas em Linux, configuração de Nginx com LiteSpeed para WordPress, entregabilidade de e-mail, containers com Docker, e provisionamento automatizado de clientes com Puppet. Cada pasta traz a entrega da sua pergunta, com o código comentado e um README próprio explicando o raciocínio, as decisões e como validei cada coisa.
 
