@@ -52,9 +52,7 @@ Na prática, aqui eu usei a IA pra tirar dúvidas pontuais, para revisar e organ
 
 Um uso que me ajudou muito foi no aprendizado do Puppet. Como eu venho do Ansible, usei a IA justamente pra entender as diferenças entre as duas ferramentas, comparando a sintaxe e os conceitos lado a lado com o que eu já conhecia. Sem IA, eu teria que assistir uma série de vídeos ou vasculhar fóruns até juntar as peças, o que levaria bem mais tempo. Aprender partindo do que eu já domino, com a comparação na hora, foi muito mais eficiente. Pra mim é isso: temos que usar a tecnologia a nosso favor pra auxiliar no aprendizado, e não fazer sentido ignorar uma ferramenta que acelera tanto esse processo.
 
-Outro exemplo concreto está na Pergunta 3: pedi que a IA rodasse alguns testes do lado dela enquanto eu montava o script, e nesses testes apareceu um comportamento errado, um timeout de DNS sendo tratado como registro ausente. Eu identifiquei que aquilo daria um diagnóstico falso e mandei corrigir, distinguindo os dois casos. Ou seja, a IA ajudou a acelerar e a testar, mas a decisão técnica e a validação final foram minhas. É assim que enxergo o uso responsável dela: como um acelerador que exige senso crítico de quem está no comando.
-
-Toda a lógica das entregas foi compreendida, testada e validada por mim, e consigo explicar e defender cada decisão que está aqui.
+Outro exemplo concreto está na Pergunta 3: pedi que a IA rodasse alguns testes do lado dela enquanto eu montava o script, e nesses testes apareceu um comportamento errado, um timeout de DNS sendo tratado como registro ausente. Eu identifiquei que aquilo daria um diagnóstico falso e então fiz a correção, distinguindo os dois casos. Ou seja, a IA ajudou trazendo mais produtividade e ampliando o comparativo dos testes realizados. Para mim, esse é o uso responsável da IA: não substituir meu raciocínio técnico, mas potencializar meu trabalho, ajudando a desenvolver soluções mais completas, organizar melhor as informações e me permitindo evoluir profissionalmente, estudando e me aprimorando de forma constante enquanto executo minhas atividades.
 
 ---
 
